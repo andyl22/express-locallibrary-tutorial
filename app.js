@@ -6,7 +6,8 @@ var logger = require('morgan');
 var sassMiddleware = require('node-sass-middleware');
 var mongoose=require('mongoose');
 
-var mongoDB = 'mongodb+srv://andylau:Rapidcar32@cluster0.hoizu.mongodb.net/local_library?retryWrites=true&w=majority';
+var dev_db_url = 'mongodb+srv://andylau:Rapidcar32@cluster0.hoizu.mongodb.net/local_library?retryWrites=true&w=majority';
+var mongoDB = process.env.MONGODB_URI || dev_db_url;
 mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true});
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
