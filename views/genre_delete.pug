@@ -1,0 +1,12 @@
+extends layout 
+
+block content 
+  h1=title
+  for book in books 
+    p #{book.title}
+
+  form(method='POST', action='')
+    div.form-group
+      input#authorid.form-control(type='hidden',name='genreid', required='true', value=genre_id )
+
+    button.btn.btn-primary(type='submit') Delete
